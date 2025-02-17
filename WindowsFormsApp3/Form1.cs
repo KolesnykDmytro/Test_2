@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp3
 {
@@ -15,36 +16,75 @@ namespace WindowsFormsApp3
         public MainForm()
         {
             InitializeComponent();
-            // Створюємо MenuStrip
-            MenuStrip menuStrip = new MenuStrip();
+        }
+        private bool isActivatedOnce = false;
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("MainForm Load");
+        }
 
-            // Файл -> Вихід
-            ToolStripMenuItem fileMenu = new ToolStripMenuItem("Файл");
-            ToolStripMenuItem exitItem = new ToolStripMenuItem("Вихід", null, (s, e) => Application.Exit());
-            fileMenu.DropDownItems.Add(exitItem);
+        private void налаштуванняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
 
-            // Налаштування -> відкриває SettingsForm модально
-            ToolStripMenuItem settingsMenu = new ToolStripMenuItem("Налаштування");
-            settingsMenu.Click += (s, e) => new SettingsForm().ShowDialog();
+        private void довідкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoForm infoForm = new InfoForm();
+            infoForm.Show();
+        }
 
-            // Довідка -> відкриває InfoForm немодально
-            ToolStripMenuItem infoMenu = new ToolStripMenuItem("Довідка");
-            infoMenu.Click += (s, e) => new InfoForm().Show();
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-            // Додаємо меню у MenuStrip
-            menuStrip.Items.Add(fileMenu);
-            menuStrip.Items.Add(settingsMenu);
-            menuStrip.Items.Add(infoMenu);
+        private void копіюватиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox1.SelectedText))
+            {
+                Clipboard.SetText(textBox1.SelectedText);
+            }
+        }
 
-            // Встановлюємо головне меню
-            this.MainMenuStrip = menuStrip;
-            this.Controls.Add(menuStrip);
+        private void вставитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Paste();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            MessageBox.Show("MainForm Shown");
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("MainForm FormClosed");
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (!isActivatedOnce) 
+            {
+                MessageBox.Show("MainForm Activated");
+                isActivatedOnce = true;
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Налаштування застосовано");
         }
     }
 }

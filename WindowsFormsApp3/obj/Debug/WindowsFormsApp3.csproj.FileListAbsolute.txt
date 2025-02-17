@@ -9,3 +9,5 @@ C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsAp
 C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.csproj.CoreCompileInputs.cache
 C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
 C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
+C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.InfoForm.resources
+C:\Users\ПК\Desktop\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.SettingsForm.resources
